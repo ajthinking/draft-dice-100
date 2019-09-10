@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,27 +13,6 @@ use Illuminate\Routing\Router;
 |
 */
 
-/*
-* Snippet for a quick route reference
-*/
-Route::get('/', function (Router $router) {
-    return collect($router->getRoutes()->getRoutesByMethod()["GET"])->map(function($value, $key) {
-        return url($key);
-    })->values();   
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
-
-Route::resource('players', 'PlayerAPIController', [
-    'only' => ['index', 'show', 'store', 'update', 'destroy']
-]);
-
-Route::resource('games', 'GameAPIController', [
-    'only' => ['index', 'show', 'store', 'update', 'destroy']
-]);
-
-Route::resource('diceThrows', 'DiceThrowAPIController', [
-    'only' => ['index', 'show', 'store', 'update', 'destroy']
-]);
-
-Route::resource('users', 'UserAPIController', [
-    'only' => ['index', 'show', 'store', 'update', 'destroy']
-]);
