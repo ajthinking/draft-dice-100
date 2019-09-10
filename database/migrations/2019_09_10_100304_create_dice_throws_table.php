@@ -19,7 +19,7 @@ class CreateDiceThrowsTable extends Migration
             $table->foreign('game_id')->references('id')->on('games');
             $table->unsignedBigInteger('player_id')->nullable();
             $table->foreign('player_id')->references('id')->on('players');
-            $table->string('value');
+            $table->unsignedInteger('value');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

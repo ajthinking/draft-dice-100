@@ -21,6 +21,6 @@ $factory->define(DiceThrow::class, function (Faker $faker) {
     return [
         'game_id' => random_int(1, 10),
         'player_id' => random_int(1, 10),
-        'value' => $faker->sentence()
+        'value' => random_int(0, 4294967295)
     ];
 });

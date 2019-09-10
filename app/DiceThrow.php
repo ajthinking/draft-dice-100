@@ -30,7 +30,6 @@ class DiceThrow extends Model
      * @var array
      */
     protected $casts = [
-        'value' => 'string',
         'created_at' => 'timestamp',
         'updated_at' => 'timestamp'
     ];
